@@ -9,13 +9,41 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.26.1",
+    "module-alias": "^2.2.2",
     "next": "12.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
-    "eslint": "8.20.0",
-    "eslint-config-next": "12.2.2"
+    "@types/node": "^18.0.6",
+    "@types/react-router": "^5.1.18",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/react-slick": "^0.23.8",
+    "@types/styled-components": "^5.1.24",
+    "@types/xml2js": "^0.4.9",
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
+    "eslint": "^8.11.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-next": "12.2.2",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.6.0",
+    "tsconfig-paths-webpack-plugin": "^3.5.2",
+    "typescript": "^4.7.4"
+  },
+  "_moduleAliases": {
+    "@entities-services": "dist/modules/database/services",
+    "@entities": "dist/entities",
+    "@modules": "dist/modules"
   }
+  
 }
