@@ -40,7 +40,7 @@ export default function Home() {
         </Style.Tags>
         <Style.Hero>
           <Style.HeroText>
-            <h1>O 'barato' do canabidiol</h1>
+            <h1>O &apos;barato&apos; do canabidiol</h1>
             <p>
               Um bud vistoso, cheiroso e tricomado não dá a menor pinta de ce é
               careta. Mas é.

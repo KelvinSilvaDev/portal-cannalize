@@ -6,14 +6,14 @@ export default function Header() {
   return (
     <Style.Header>
       <div>
-        <a href="/">
+        <Link href="/">
           <Image
             src="/assets/img/cannalize_logo.png"
             alt="Cannalize Logo"
             width={164}
             height={39}
           />
-        </a>
+        </Link>
       </div>
       <Style.MenuWrapp>
         <Style.ButtonTop>
