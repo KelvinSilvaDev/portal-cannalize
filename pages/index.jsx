@@ -53,7 +53,7 @@ export default function Home() {
             </span>
             <p>
               <strong>
-                12 de janeiro de 2022, por <a href="/">Smoke Buddies</a>
+                12 de janeiro de 2022, por <Link href="/">Smoke Buddies</Link>
               </strong>
             </p>
           </Style.HeroText>
