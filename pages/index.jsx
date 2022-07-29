@@ -80,9 +80,9 @@ export default function Home() {
                       height={475}
                     />
                   </div>
-                  <a href={slug}>
+                  <Link href={slug}>
                     <h1>{title.rendered}</h1>
-                  </a>
+                  </Link>
                 </div>
                 {/* <img src= alt="" /> */}
               </div>
