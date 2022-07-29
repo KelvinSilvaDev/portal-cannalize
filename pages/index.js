@@ -1,8 +1,27 @@
 import Head from "next/head";
 import Image from "next/image";
 // import styles from '../styles/Home.module.css'
+import * as Style from "../styles/homeStyles";
+import React, { useState, useEffect } from "react";
 
 export default function Home() {
+  const [post, setPost] = useState([]);
+
+  useEffect(() => {
+    try {
+      fetch("https://kellek.com.br/wp-json/wp/v2/posts")
+        .then((res) => {
+          return res.json();
+        })
+        .then((response) => {
+          setPost(response);
+          console.log(response);
+          console.log(post);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
   return (
     <div>
       <Head>
@@ -12,6 +31,8 @@ export default function Home() {
       </Head>
 
       <main>
+        <Style.Grid>
+          {/* 
         <h1>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
@@ -44,19 +65,40 @@ export default function Home() {
           </a>
         </div>
       </main>
-
+      
       <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      <a
+      href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+      target="_blank"
+      rel="noopener noreferrer"
+      >
+      Powered by{" "}
+      <span>
+      <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+      </span>
+      </a>
+      </footer> 
+    */}
+          {post.map(({ title, yoast_head_json }) => {
+            return (
+              <div key={title}>
+                <div>
+                  <h1>{title.rendered}</h1>
+                  <div>
+                    <Image
+                      src={yoast_head_json.og_image[0].url}
+                      layout="responsive"
+                      width={700}
+                      height={475}
+                    />
+                  </div>
+                </div>
+                {/* <img src= alt="" /> */}
+              </div>
+            );
+          })}
+        </Style.Grid>
+      </main>
     </div>
   );
 }
