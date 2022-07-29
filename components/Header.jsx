@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import * as Style from "../styles/headerStyles";
 
 export default function Header() {
@@ -20,11 +21,11 @@ export default function Header() {
         </Style.ButtonTop>
         <Style.Menu>
           <nav>
-            <a href="/">notícias</a>
-            <a href="/">medicina</a>
-            <a href="/">guias</a>
-            <a href="/">bem estar</a>
-            <a href="/"> colunistas</a>
+            <Link href="/">notícias</Link>
+            <Link href="/">medicina</Link>
+            <Link href="/">guias</Link>
+            <Link href="/">bem estar</Link>
+            <Link href="/"> colunistas</Link>
           </nav>
           <input type="search" name="busca" id="busca" />
         </Style.Menu>

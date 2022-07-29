@@ -48,7 +48,7 @@ export default function Post() {
   return (
     <div>
       {post?.map((ps) => (
-        <div>
+        <div key={ps.id}>
           <a href={ps.categories}>{category}</a>
           {console.log(category)}
           <h1>{ps?.title?.rendered}</h1>
