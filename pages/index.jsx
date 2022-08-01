@@ -5,24 +5,42 @@ import Image from "next/image";
 import * as Style from "../styles/homeStyles";
 import Link from "next/link";
 
-export default function Home() {
-  const [post, setPost] = useState([]);
+export async function getServerSideProps() {
+  const post = await fetch("https://kellek.com.br/wp-json/wp/v2/posts")
+    .then((res) => {
+      return res.json();
+    })
+    .then((response) => {
+      // setPost(response);
+      console.log(response);
+      // console.log(post);
+      return response;
+    });
+  return {
+    props: {
+      post,
+    }, // will be passed to the page component as props
+  };
+}
 
-  useEffect(() => {
-    try {
-      fetch("https://kellek.com.br/wp-json/wp/v2/posts")
-        .then((res) => {
-          return res.json();
-        })
-        .then((response) => {
-          setPost(response);
-          console.log(response);
-          console.log(post);
-        });
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
+export default function Home({ post }) {
+  // const [post, setPost] = useState([]);
+
+  // useEffect(() => {
+  //   try {
+  //     fetch("https://kellek.com.br/wp-json/wp/v2/posts")
+  //       .then((res) => {
+  //         return res.json();
+  //       })
+  //       .then((response) => {
+  //         setPost(response);
+  //         console.log(response);
+  //         console.log(post);
+  //       });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, []);
   return (
     <div>
       <Head>
