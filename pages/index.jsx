@@ -69,22 +69,24 @@ export default function Home({ post }) {
         <Style.Grid>
           {post.map(({ guid, title, yoast_head_json, slug }) => {
             return (
-              <Link href={slug}>
-                <div key={title} className="card">
-                  <div>
+              <div key={slug}>
+                <Link href={slug}>
+                  <div className="card">
                     <div>
-                      <Image
-                        src={yoast_head_json.og_image[0].url}
-                        layout="responsive"
-                        width={700}
-                        height={475}
-                      />
+                      <div>
+                        <Image
+                          src={yoast_head_json.og_image[0].url}
+                          layout="responsive"
+                          width={700}
+                          height={475}
+                        />
+                      </div>
+                      <h1>{title.rendered}</h1>
                     </div>
-                    <h1>{title.rendered}</h1>
+                    {/* <img src= alt="" /> */}
                   </div>
-                  {/* <img src= alt="" /> */}
-                </div>
-              </Link>
+                </Link>
+              </div>
             );
           })}
         </Style.Grid>
