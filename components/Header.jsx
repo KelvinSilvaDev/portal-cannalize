@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import * as Style from "../styles/headerStyles";
+import Dropbtn from "./Dropbtn";
 
 export default function Header() {
   return (
@@ -21,13 +22,38 @@ export default function Header() {
         </Style.ButtonTop>
         <Style.Menu>
           <nav>
-            <Link href="/">notícias</Link>
-            <Link href="/">medicina</Link>
-            <Link href="/">guias</Link>
-            <Link href="/">bem estar</Link>
-            <Link href="/"> colunistas</Link>
+            <Dropbtn title="notícias">
+              <Link href="/">
+                <a>Olá</a>
+              </Link>
+            </Dropbtn>
+            <Dropbtn title="medicina">
+              <Link href="/">
+                <a>Olá</a>
+              </Link>
+            </Dropbtn>
+            <Dropbtn title="guias">
+              <Link href="/">
+                <a>Olá</a>
+              </Link>
+            </Dropbtn>
+            <Dropbtn title="bem estar">
+              <Link href="/">
+                <a>Olá</a>
+              </Link>
+            </Dropbtn>
+            <Dropbtn title="colunistas">
+              <Link href="/">
+                <a>Olá</a>
+              </Link>
+            </Dropbtn>
           </nav>
-          <input type="search" name="busca" id="busca" />
+          <input
+            type="search"
+            name="busca"
+            id="busca"
+            placeholder="Pesquisar"
+          />
         </Style.Menu>
       </Style.MenuWrapp>
     </Style.Header>

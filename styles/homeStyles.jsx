@@ -36,7 +36,16 @@ export const Grid = styled.div`
   gap: 16px;
   flex-flow: row wrap;
 
-  div {
+  .card {
+    cursor: pointer;
+    border: 0.05rem solid #e5e5e5;
+    border-radius: 8px;
+    padding: 1rem;
+    //min-height: 350px;
+    :hover {
+      transform: scale(1.05);
+      transition: 0.5s;
+    }
     h1 {
       font-size: 20px;
     }
