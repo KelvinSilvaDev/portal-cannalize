@@ -6,6 +6,12 @@ const nextConfig = {
 
 module.exports = {
   images: {
-    domains: ["i0.wp.com", "kellek.com.br"],
+    domains: [
+      "3.209.73.98",
+      "i0.wp.com",
+      "kellek.com.br",
+      "cannalize.com.br",
+      "www.cannalize.com.br",
+    ],
   },
 };

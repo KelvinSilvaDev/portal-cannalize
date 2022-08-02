@@ -2,8 +2,38 @@ import Image from "next/image";
 import Link from "next/link";
 import * as Style from "../styles/headerStyles";
 import Dropbtn from "./Dropbtn";
+import { useState, useEffect } from "react";
+
+import api from "../services/api";
+// export async function getStaticProps() {
+//   api
+//     .get(`https://kellek.com.br/?rest_route=/wp/v2/categories/`)
+//     .then((response) => {
+//       console.log(response.data.name);
+//       return response.data.name;
+//     });
+//   return {
+//     props: {},
+//   };
+// }
 
 export default function Header() {
+  const [categoria, setCategoria] = useState([]);
+  const cats = categoria.map(({ name, _links }) => {
+    return <a href={_links["wp:post_type"][0].href}>{name}</a>;
+  });
+  useEffect(() => {
+    api
+      .get(`https://kellek.com.br/?rest_route=/wp/v2/categories/`)
+      .then((response) => {
+        setCategoria(response.data);
+      });
+  }, []);
+  console.log(
+    categoria.map(({ name, _links }) => {
+      return <a href={_links["wp:post_type"][0].href}>{name}</a>;
+    })
+  );
   return (
     <Style.Header>
       <div>
@@ -23,9 +53,15 @@ export default function Header() {
         <Style.Menu>
           <nav>
             <Dropbtn title="notícias">
-              <Link href="/">
+              {/* {categoria.map(({ name, _links }) => {
+                <Link href={_links["wp:post_type"][0].href}>
+                  <a>{name}</a>;
+                </Link>;
+              })} */}
+              {cats}
+              {/* <Link href="/">
                 <a>Olá</a>
-              </Link>
+              </Link> */}
             </Dropbtn>
             <Dropbtn title="medicina">
               <Link href="/">

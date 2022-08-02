@@ -8,6 +8,65 @@ export const Header = styled.header`
   padding: 1rem;
 `;
 
+export const HeroWrapp = styled.div`
+  margin: 0rem 0 4rem 0;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+
+  .swiper-wrapper {
+    height: 500px;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 17px !important;
+    border-radius: 15px;
+    height: 17px;
+  }
+
+  .swiper-pagination-bullet {
+    background: #fb5f57;
+    width: 17px;
+    height: 17px;
+  }
+`;
+
 export const MenuWrapp = styled.div`
   display: flex;
   flex-direction: column;
@@ -49,7 +108,9 @@ export const Grid = styled.div`
     h1 {
       font-size: 20px;
     }
-    flex-basis: 15%;
+  }
+  div {
+    flex-basis: 25%;
     display: flex;
     flex-direction: column;
   }
@@ -75,4 +136,14 @@ export const HeroText = styled.div`
 export const HeroImg = styled.div`
   float: right;
   width: 50%;
+`;
+
+export const Main = styled.main`
+  width: 75%;
+  float: left;
+`;
+
+export const Aside = styled.aside`
+  width: 25%;
+  float: right;
 `;
