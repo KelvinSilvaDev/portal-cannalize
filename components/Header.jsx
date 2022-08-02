@@ -20,7 +20,11 @@ import api from "../services/api";
 export default function Header() {
   const [categoria, setCategoria] = useState([]);
   const cats = categoria.map(({ name, _links }) => {
-    return <a href={_links["wp:post_type"][0].href}>{name}</a>;
+    return (
+      <a href={_links["wp:post_type"][0].href} key={name}>
+        {name}
+      </a>
+    );
   });
   useEffect(() => {
     api
