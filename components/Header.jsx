@@ -33,11 +33,7 @@ export default function Header() {
         setCategoria(response.data);
       });
   }, []);
-  console.log(
-    categoria.map(({ name, _links }) => {
-      return <a href={_links["wp:post_type"][0].href}>{name}</a>;
-    })
-  );
+
   return (
     <Style.Header>
       <div>
