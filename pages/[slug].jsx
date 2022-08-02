@@ -10,7 +10,7 @@ export default function Post() {
     try {
       axios
         .get(
-          `https://cannalize.com.br/wp-json/wp/v2/posts?slug=${router.query.slug}`
+          `https://kellek.com.br/wp-json/wp/v2/posts?slug=${router.query.slug}`
         )
         .then((response) => {
           setPost(response.data);
@@ -34,7 +34,7 @@ export default function Post() {
         `https://kellek.com.br/wp-json/wp/v2/categories?category=${post.categories}`
       )
         .then((resposta) => {
-          return resposta;
+          return resposta.json;
         })
         .then((response) => {
           setCategory(response.name);
