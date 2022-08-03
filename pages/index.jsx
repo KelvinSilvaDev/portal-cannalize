@@ -14,7 +14,7 @@ import { ptBR } from "date-fns/locale";
 export async function getServerSideProps() {
   //const [autor, setAutor] = useState([]);
   const swiperPost = await api
-    .get("https://kellek.com.br/wp-json/wp/v2/posts?per_page=5&offset=1")
+    .get("https://kellek.com.br/wp-json/wp/v2/posts?per_page=5&offset=1&_embed")
     .then((res) => {
       // api
       //   .get(`https://kellek.com.br/wp-json/wp/v2/users/${res[0].author}`)
@@ -78,7 +78,7 @@ export default function Home({ post, swiperPost }) {
               modules={[Pagination]}
             >
               {swiperPost.map(
-                ({ title, excerpt, yoast_head_json, date_gmt, author }) => (
+                ({ title, excerpt, yoast_head_json, date_gmt, _embedded }) => (
                   <SwiperSlide key={title}>
                     <Style.HeroText>
                       <h1>{title.rendered}</h1>
@@ -100,9 +100,9 @@ export default function Home({ post, swiperPost }) {
                             { locale: ptBR }
                           )}
                           , por
-                          {/* <Link href="/">
-          <a>{getAuthor(author)}</a>
-        </Link> */}
+                          <Link href="/">
+                            <a> {_embedded?.author[0].name}</a>
+                          </Link>
                           {/* <p>{getAuthor(author)}</p> */}
                         </strong>
                       </p>
