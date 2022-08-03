@@ -38,6 +38,8 @@ export const Menu = styled.div`
     background: #f2f0ec;
     border-radius: 8px;
     border: none;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
   }
   nav {
     display: flex;
@@ -54,5 +56,6 @@ export const ButtonTop = styled.div`
     font-size: 14px;
     border-radius: 8px;
     cursor: pointer;
+    font-family: Oswald;
   }
 `;

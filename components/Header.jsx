@@ -28,7 +28,7 @@ export default function Header() {
   });
   useEffect(() => {
     api
-      .get(`https://kellek.com.br/?rest_route=/wp/v2/categories/`)
+      .get(`https://cannalize.com.br/?rest_route=/wp/v2/categories/`)
       .then((response) => {
         setCategoria(response.data);
       });

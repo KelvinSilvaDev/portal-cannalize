@@ -116,16 +116,53 @@ export const Grid = styled.div`
   }
 `;
 
+export const TagsWrapp = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 16px;
+`;
+
 export const Tags = styled.div`
   display: flex;
   gap: 18px;
   justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 11px 25px;
+  gap: 10px;
+
+  a {
+    color: #fb5f57;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 11px 18px;
+    gap: 10px;
+
+    width: 86px;
+    height: 38px;
+
+    background: #f2f0ec;
+    border-radius: 48px;
+  }
+  border-radius: 48px;
 `;
 
 export const Hero = styled.div`
   display: flex;
   align-items: center;
   padding: 5em;
+  width: 100%;
 `;
 
 export const HeroText = styled.div`
@@ -138,7 +175,7 @@ export const HeroImg = styled.div`
   width: 50%;
 `;
 
-export const Main = styled.main`
+export const Article = styled.article`
   width: 75%;
   float: left;
 `;
@@ -146,4 +183,54 @@ export const Main = styled.main`
 export const Aside = styled.aside`
   width: 25%;
   float: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-content: flex-start;
+  position: sticky;
+  top: 0;
+  div {
+    width: 100%;
+    a {
+      float: right;
+      margin-right: 1rem;
+    }
+
+    div {
+      width: 100%;
+      section {
+        ul {
+          overflow-y: auto;
+          padding-left: 0;
+          li {
+            list-style: none;
+            div {
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              align-content: center;
+
+              div {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                align-content: center;
+                gap: 8px;
+                :first-of-type {
+                  width: 35%;
+                }
+                &:last-of-type {
+                  padding-bottom: 1rem;
+                  padding-left: 1rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 `;

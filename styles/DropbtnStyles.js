@@ -8,19 +8,28 @@ export const All = styled.div`
     justify-content: center;
     border: none;
     background: #fff;
-
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
     /* Inside auto layout */
 
     flex: none;
     order: 1;
     flex-grow: 0;
-    font-style: normal;
-    font-weight: 700;
     font-size: 16px;
     line-height: 22px;
     /* identical to box height */
 
     color: #2c2a32;
+    ::after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+
+      border-top: 8px solid #2c2a32;
+      margin-left: 8px;
+    }
   }
 
   .dropdown {

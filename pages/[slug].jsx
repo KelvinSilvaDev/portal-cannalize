@@ -10,14 +10,14 @@ export default function Post() {
     try {
       axios
         .get(
-          `https://kellek.com.br/wp-json/wp/v2/posts?slug=${router.query.slug}`
+          `https://cannalize.com.br/wp-json/wp/v2/posts?slug=${router.query.slug}`
         )
         .then((response) => {
           setPost(response.data);
           console.log(response);
           axios
             .get(
-              `https://kellek.com.br/wp-json/wp/v2/categories/${response?.data[0]?.categories[0]}`
+              `https://cannalize.com.br/wp-json/wp/v2/categories/${response?.data[0]?.categories[0]}`
             )
             .then((result) => {
               setCategory(result.data.name);
@@ -31,7 +31,7 @@ export default function Post() {
   useEffect(() => {
     try {
       fetch(
-        `https://kellek.com.br/wp-json/wp/v2/categories?category=${post.categories}`
+        `https://cannalize.com.br/wp-json/wp/v2/categories?category=${post.categories}`
       )
         .then((resposta) => {
           return resposta.json;
