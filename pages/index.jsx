@@ -25,7 +25,7 @@ export async function getServerSideProps() {
       return response;
     });
   const post = await api
-    .get("https://kellek.com.br/wp-json/wp/v2/posts")
+    .get("https://kellek.com.br/wp-json/wp/v2/posts?per_page=12&offset=1")
     .then((res) => {
       return res.data;
     })
