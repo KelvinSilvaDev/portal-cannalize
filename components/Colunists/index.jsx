@@ -8,7 +8,7 @@ export default function Colunists(colunist) {
   return (
     <>
       {colArr.map((colunista) => (
-        <div>
+        <div key={colunista.id}>
           <div>
             <section>
               <ul>
