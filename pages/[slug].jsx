@@ -3,8 +3,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Head from "next/head";
 import Image from "next/image";
+import useMediaQuery from "../src/hooks/useMediaQuery";
+import { MOBILE_WIDTH } from "../src/utils/constants";
 import * as Style from "../styles/postTemplate";
 export default function Post() {
+  const isMobile = useMediaQuery(MOBILE_WIDTH);
   const router = useRouter();
   const [post, setPost] = useState([]);
   const [category, setCategory] = useState([]);
@@ -50,7 +53,7 @@ export default function Post() {
   }, []);
   console.log(post);
   return (
-    <Style.Cover>
+    <Style.Cover isDesktop={!isMobile}>
       <Head>
         <title>{post[0]?.title.rendered}</title>
       </Head>
