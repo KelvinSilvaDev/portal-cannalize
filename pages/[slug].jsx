@@ -55,8 +55,8 @@ export default function Post() {
         <title>{post[0]?.title.rendered}</title>
       </Head>
       {post?.map((ps) => (
-        <div>
-          <div key={ps.id} className="wrapp">
+        <div key={ps.id}>
+          <div className="wrapp">
             <div className="postData">
               <a href={ps.categories}>{category}</a>
               {console.log(category)}
