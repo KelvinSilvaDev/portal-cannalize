@@ -7,6 +7,7 @@ const nextConfig = {
 module.exports = {
   images: {
     domains: [
+      "secure.gravatar.com",
       "3.209.73.98",
       "i0.wp.com",
       "kellek.com.br",

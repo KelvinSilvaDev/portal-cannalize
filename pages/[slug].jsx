@@ -24,13 +24,13 @@ export default function Post() {
             .then((result) => {
               setCategory(result.data.name);
               console.log(result.data);
-              console.log(post[0].title.rendered);
+              // console.log(post[0].title.rendered);
             });
         });
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [post]);
   useEffect(() => {
     try {
       fetch(
@@ -52,11 +52,11 @@ export default function Post() {
   return (
     <Style.Cover>
       <Head>
-        <title>{post[0].title.rendered}</title>
+        <title>{post[0]?.title.rendered}</title>
       </Head>
       {post?.map((ps) => (
-        <div key={ps.id}>
-          <div className="wrapp">
+        <div>
+          <div key={ps.id} className="wrapp">
             <div className="postData">
               <a href={ps.categories}>{category}</a>
               {console.log(category)}
