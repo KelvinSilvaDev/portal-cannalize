@@ -13,6 +13,14 @@ export const Cover = styled.div`
           height: auto;
         }
       }
+      p {
+        margin: 0;
+        width: 100% !important;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
     }
   }
   .wrapp {
