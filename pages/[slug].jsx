@@ -77,7 +77,10 @@ export default function Post() {
               />
             </div>
           </div>
-          <div dangerouslySetInnerHTML={{ __html: ps.content.rendered }}></div>
+          <div
+            className="postContent"
+            dangerouslySetInnerHTML={{ __html: ps.content.rendered }}
+          ></div>
         </div>
       ))}
     </Style.Cover>
