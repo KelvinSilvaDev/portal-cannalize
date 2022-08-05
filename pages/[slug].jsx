@@ -1,7 +1,9 @@
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Head from "next/head";
 import Image from "next/image";
+import * as Style from "../styles/postTemplate";
 export default function Post() {
   const router = useRouter();
   const [post, setPost] = useState([]);
@@ -10,28 +12,29 @@ export default function Post() {
     try {
       axios
         .get(
-          `https://cannalize.com.br/wp-json/wp/v2/posts?slug=${router.query.slug}`
+          `https://kellek.com.br/wp-json/wp/v2/posts?slug=${router.query.slug}`
         )
         .then((response) => {
           setPost(response.data);
           console.log(response);
           axios
             .get(
-              `https://cannalize.com.br/wp-json/wp/v2/categories/${response?.data[0]?.categories[0]}`
+              `https://kellek.com.br/wp-json/wp/v2/categories/${response?.data[0]?.categories[0]}`
             )
             .then((result) => {
               setCategory(result.data.name);
               console.log(result.data);
+              console.log(post[0].title.rendered);
             });
         });
     } catch (error) {
       console.log(error);
     }
-  }, [post]);
+  }, []);
   useEffect(() => {
     try {
       fetch(
-        `https://cannalize.com.br/wp-json/wp/v2/categories?category=${post.categories}`
+        `https://kellek.com.br/wp-json/wp/v2/categories?category=${post.categories}`
       )
         .then((resposta) => {
           return resposta.json;
@@ -45,21 +48,35 @@ export default function Post() {
       console.log(error);
     }
   }, []);
+  console.log(post);
   return (
-    <div>
+    <Style.Cover>
+      <Head>
+        <title>{post[0].title.rendered}</title>
+      </Head>
       {post?.map((ps) => (
-        <div key={ps.id}>
-          <a href={ps.categories}>{category}</a>
-          {console.log(category)}
-          <h1>{ps?.title?.rendered}</h1>
-          <Image
-            src={ps.yoast_head_json.og_image[0].url}
-            width={100}
-            layout="responsive"
-            height={75}
-          />
+        <div>
+          <div key={ps.id} className="wrapp">
+            <div className="postData">
+              <a href={ps.categories}>{category}</a>
+              {console.log(category)}
+              <h1>{ps?.title?.rendered}</h1>
+              <div
+                dangerouslySetInnerHTML={{ __html: ps.excerpt.rendered }}
+              ></div>
+            </div>
+            <div className="fImage">
+              <Image
+                src={ps.yoast_head_json.og_image[0].url}
+                width={100}
+                layout="responsive"
+                height={75}
+              />
+            </div>
+          </div>
+          <div dangerouslySetInnerHTML={{ __html: ps.content.rendered }}></div>
         </div>
       ))}
-    </div>
+    </Style.Cover>
   );
 }

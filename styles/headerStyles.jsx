@@ -2,25 +2,30 @@ import styled from "styled-components";
 
 export const Header = styled.header`
   width: 100%;
+  //display: ${({ isDesktop }) => (isDesktop ? "flex" : "block")};
   display: flex;
-  flex-direction: row;
+  flex-direction: ${({ isDesktop }) => (isDesktop ? "row" : "column")};
   justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
   padding: 1rem;
-  div {
+  .logoWrapp {
     cursor: pointer;
   }
 `;
 
 export const MenuWrapp = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  flex-direction: ${({ isDesktop }) => (isDesktop ? "column" : "row")};
+  align-items: ${({ isDesktop }) => (isDesktop ? "flex-end" : "center")};
+
   gap: 16px;
 `;
 
 export const Menu = styled.div`
   display: flex;
-  flex-direction: row;
+  float: ${({ isDesktop }) => (isDesktop ? "none" : "left")};
+  flex-direction: ${({ isDesktop }) => (isDesktop ? "row" : "column")};
   align-items: center;
   justify-content: center;
   align-content: center;
@@ -42,12 +47,35 @@ export const Menu = styled.div`
     font-weight: 400;
   }
   nav {
-    display: flex;
+    display: ${({ isDesktop }) => (isDesktop ? "flex" : "none")};
+    flex-direction: ${({ isDesktop }) => (isDesktop ? "row" : "column")};
     gap: 5px;
+    align-items: center;
   }
+`;
+
+export const MenuMobileTogler = styled.div`
+  display: ${({ isDesktop }) => (isDesktop ? "none" : "flex")};
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: space-between;
+  justify-content: flex-end;
+  align-items: right;
+  float: ${({ isDesktop }) => (isDesktop ? "none" : "right")};
+  svg {
+    float: left;
+    width: 15% !important;
+  }
+  img {
+    fill: #000;
+  }
+  /* @media (min-width: 800px) {
+    display: none !important;
+  } */
 `;
 export const ButtonTop = styled.div`
   button {
+    float: ${({ isDesktop }) => (isDesktop ? "none" : "left")};
     background: #fe7a41;
     border: none;
     padding: 16px;
@@ -57,5 +85,7 @@ export const ButtonTop = styled.div`
     border-radius: 8px;
     cursor: pointer;
     font-family: Oswald;
+    width: ${({ isDesktop }) => (isDesktop ? "auto" : "200px")};
+    //margin-right: ${({ isDesktop }) => (isDesktop ? "0" : "8px")};
   }
 `;

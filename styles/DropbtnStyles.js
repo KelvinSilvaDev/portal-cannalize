@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const All = styled.div`
   .dropbtn {
+    width: ${({ isDesktop }) => (isDesktop ? "" : "300px")};
     display: flex;
     flex-direction: row;
     align-items: center;

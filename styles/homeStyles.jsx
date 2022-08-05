@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const AllWrapp = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: ${({ isDesktop }) => (isDesktop ? "row" : "column")};
+`;
+
 export const Header = styled.header`
   width: 100%;
   display: flex;
@@ -20,7 +26,7 @@ export const HeroWrapp = styled.div`
   object-fit: cover;
 
   .swiper-wrapper {
-    height: 500px;
+    height: ${({ isDesktop }) => (isDesktop ? "535px" : "80vh")};
   }
 
   .swiper {
@@ -28,7 +34,7 @@ export const HeroWrapp = styled.div`
     height: 100%;
   }
 
-  swiper-slide {
+  .swiper-slide {
     text-align: center;
     font-size: 18px;
     background: #fff;
@@ -38,6 +44,7 @@ export const HeroWrapp = styled.div`
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
+    flex-direction: ${({ isDesktop }) => (isDesktop ? "row" : "column")};
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     -webkit-justify-content: center;
@@ -93,7 +100,7 @@ export const Grid = styled.div`
   width: 100%;
   padding: 1rem;
   gap: 16px;
-  flex-flow: row wrap;
+  flex-flow: ${({ isDesktop }) => (isDesktop ? "row wrap" : "column nowrap")};
 
   .card {
     cursor: pointer;
@@ -110,7 +117,8 @@ export const Grid = styled.div`
     }
   }
   div {
-    flex-basis: 25%;
+    flex-basis: ${({ isDesktop }) => (isDesktop ? "25%" : "100%")};
+    width: 100%;
     display: flex;
     flex-direction: column;
   }
@@ -127,12 +135,13 @@ export const TagsWrapp = styled.div`
 export const Tags = styled.div`
   display: flex;
   gap: 18px;
-  justify-content: center;
+  justify-content: ${({ isDesktop }) => (isDesktop ? "flex-start" : "center")};
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   padding: 11px 25px;
   gap: 10px;
+  width: 100%;
 
   a {
     color: #fb5f57;
@@ -161,28 +170,28 @@ export const Tags = styled.div`
 export const Hero = styled.div`
   display: flex;
   align-items: center;
-  padding: 5em;
+  padding: ${({ isDesktop }) => (isDesktop ? "5em" : "5em 1rem")};
   width: 100%;
 `;
 
 export const HeroText = styled.div`
   float: left;
-  width: 50%;
+  width: ${({ isDesktop }) => (isDesktop ? "50%" : "100%")};
   padding: 1rem;
 `;
 export const HeroImg = styled.div`
   float: right;
-  width: 50%;
+  width: ${({ isDesktop }) => (isDesktop ? "50%" : "100%")};
 `;
 
 export const Article = styled.article`
-  width: 75%;
+  width: ${({ isDesktop }) => (isDesktop ? "75%" : "100%")};
   float: left;
 `;
 
 export const Aside = styled.aside`
-  width: 25%;
-  float: right;
+  width: ${({ isDesktop }) => (isDesktop ? "25%" : "100%")};
+  float: ${({ isDesktop }) => (isDesktop ? "right" : "none")};
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -192,6 +201,7 @@ export const Aside = styled.aside`
   top: 0;
   div {
     width: 100%;
+    padding: ${({ isDesktop }) => (isDesktop ? "0" : "0 0.2rem")};
     a {
       float: right;
       margin-right: 1rem;

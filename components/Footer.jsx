@@ -1,11 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import { MOBILE_WIDTH } from "../src/utils/constants";
+import useMediaQuery from "../src/hooks/useMediaQuery";
 import * as Style from "../styles/footerStyles";
 
 export default function Footer() {
+  const isMobile = useMediaQuery(MOBILE_WIDTH);
   return (
     <footer>
-      <Style.Header>
+      <Style.Header isDesktop={!isMobile}>
         <div>
           <Link href="/">
             <Image
@@ -17,7 +20,7 @@ export default function Footer() {
           </Link>
         </div>
       </Style.Header>
-      <Style.Section>
+      <Style.Section isDesktop={!isMobile}>
         <div>
           <div>
             <h4>A Cannalize</h4>
