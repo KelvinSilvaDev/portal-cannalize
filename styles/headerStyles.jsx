@@ -18,6 +18,9 @@ export const MenuWrapp = styled.div`
   display: flex;
   flex-direction: ${({ isDesktop }) => (isDesktop ? "column" : "row")};
   align-items: ${({ isDesktop }) => (isDesktop ? "flex-end" : "center")};
+  width: 100%;
+  justify-content: ${({ isDesktop }) =>
+    isDesktop ? "center" : "space-between"};
 
   gap: 16px;
 `;
@@ -64,7 +67,7 @@ export const MenuMobileTogler = styled.div`
   float: ${({ isDesktop }) => (isDesktop ? "none" : "right")};
   svg {
     float: left;
-    width: 15% !important;
+    width: ${({ isDesktop }) => (isDesktop ? "15%" : "35px")};
   }
   img {
     fill: #000;

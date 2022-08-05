@@ -6,62 +6,107 @@ import Image from "next/image";
 import useMediaQuery from "../src/hooks/useMediaQuery";
 import { MOBILE_WIDTH } from "../src/utils/constants";
 import * as Style from "../styles/postTemplate";
-export default function Post() {
-  const isMobile = useMediaQuery(MOBILE_WIDTH);
+import api from "../services/api";
+
+export async function getServerSideProps(context) {
+  const { params } = context;
+  const { slug } = params;
+  const post = await api
+    .get(`https://kellek.com.br/wp-json/wp/v2/posts?slug=${slug}`)
+    .then((response) => {
+      return response.data;
+      // console.log(response);
+    })
+    .then((res) => {
+      return res;
+    });
+
+  return {
+    props: {
+      post,
+    },
+  };
+}
+
+// api
+//   .get(
+//     `https://kellek.com.br/wp-json/wp/v2/categories/${response?.data[0]?.categories[0]}`
+//   )
+//   .then((result) => {
+//     setCategory(result.data.name);
+//     console.log(result.data);
+//     // console.log(post[0].title.rendered);
+//   });
+
+export default function Post(post) {
   const router = useRouter();
-  const [post, setPost] = useState([]);
+  //const slug = router.query.slug;
+  const isMobile = useMediaQuery(MOBILE_WIDTH);
+  //const [post, setPost] = useState([]);
   const [category, setCategory] = useState([]);
+  // const [id, setId] = useState([]);
+  // useEffect(() => {
+  //   try {
+  //     axios
+  //       .get(
+  //         `https://kellek.com.br/wp-json/wp/v2/posts?slug=${router.query.slug}`
+  //       )
+  //       .then((response) => {
+  //         setPost(response.data);
+  //         console.log(response);
+  //         axios
+  //           .get(
+  //             `https://kellek.com.br/wp-json/wp/v2/categories/${response?.data[0]?.categories[0]}`
+  //           )
+  //           .then((result) => {
+  //             setCategory(result.data.name);
+  //             console.log(result.data);
+  //             // console.log(post[0].title.rendered);
+  //           });
+  //       });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [post]);
+
   useEffect(() => {
     try {
-      axios
+      api
         .get(
-          `https://kellek.com.br/wp-json/wp/v2/posts?slug=${router.query.slug}`
+          `https://kellek.com.br/wp-json/wp/v2/categories?post=${id}&_embedded `
         )
-        .then((response) => {
-          setPost(response.data);
-          console.log(response);
-          axios
-            .get(
-              `https://kellek.com.br/wp-json/wp/v2/categories/${response?.data[0]?.categories[0]}`
-            )
-            .then((result) => {
-              setCategory(result.data.name);
-              console.log(result.data);
-              // console.log(post[0].title.rendered);
-            });
-        });
-    } catch (error) {
-      console.log(error);
-    }
-  }, [post]);
-  useEffect(() => {
-    try {
-      fetch(
-        `https://kellek.com.br/wp-json/wp/v2/categories?category=${post.categories}`
-      )
         .then((resposta) => {
-          return resposta.json;
+          console.log(resposta.data);
+          return resposta.data;
         })
         .then((response) => {
-          setCategory(response.name);
-          console.log(response.name);
+          setCategory(response);
           //   console.log(post);
         });
     } catch (error) {
       console.log(error);
     }
   }, []);
-  console.log(post);
+  console.log(post.post[0].id);
+  const id = post.post[0].id;
+  console.log(id);
   return (
     <Style.Cover isDesktop={!isMobile}>
       <Head>
-        <title>{post[0]?.title.rendered}</title>
+        <title>{post.post[0]?.title.rendered}</title>
       </Head>
-      {post?.map((ps) => (
+      {post.post?.map((ps) => (
         <div key={ps.id}>
           <div className="wrapp">
             <div className="postData">
-              <a href={ps.categories}>{category}</a>
+              {/* <a href={ps.categories}>{ps._links["wp:term"][0].href}</a> */}
+              <p>
+                {category.map(({ name }) => (
+                  <div>
+                    <p>{name}</p>
+                  </div>
+                ))}
+              </p>
               {console.log(category)}
               <h1>{ps?.title?.rendered}</h1>
               <div

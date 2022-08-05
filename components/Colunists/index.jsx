@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import * as Style from "./styles";
 
 import api from "../../services/api";
 
@@ -8,7 +9,7 @@ export default function Colunists(colunist) {
   return (
     <>
       {colArr.map((colunista) => (
-        <div key={colunista.id}>
+        <div>
           <div>
             <section>
               <ul>
@@ -22,7 +23,11 @@ export default function Colunists(colunist) {
                       />
                     </div>
                     <div>
-                      <p>{colunista.description}</p>
+                      <div>
+                        <Style.AutorContent>
+                          {colunista.description}
+                        </Style.AutorContent>
+                      </div>
                       <span>
                         <strong>{colunista.name}</strong>
                       </span>

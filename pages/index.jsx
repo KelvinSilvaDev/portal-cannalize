@@ -54,6 +54,27 @@ export async function getServerSideProps() {
     },
   };
 }
+// export async function getStaticProps() {
+//   //const [autor, setAutor] = useState([]);
+//   const colunist = await api
+//     .get("https://kellek.com.br/wp-json/wp/v2/users?per_page=5&offset=1&_embed")
+//     .then((res) => {
+//       // api
+//       //   .get(`https://kellek.com.br/wp-json/wp/v2/users/${res[0].author}`)
+//       //   .then((response) => setAutor(response.data.name));
+//       return res.data;
+//     })
+//     .then((response) => {
+//       return response;
+//     });
+
+//   return {
+//     props: {
+//       colunist,
+
+//     },
+//   };
+// }
 
 // const getAuthor = (author_id) => {
 //   api
@@ -171,7 +192,7 @@ export default function Home({ colunist, post, swiperPost }) {
           {post.map(({ guid, title, yoast_head_json, slug }) => {
             return (
               <div key={slug}>
-                <Link href={slug}>
+                <Link href={slug} slug={slug} id={guid}>
                   <div className="card">
                     <div>
                       <div>

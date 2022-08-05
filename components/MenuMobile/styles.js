@@ -6,10 +6,43 @@ export const NavLink = styled.a`
   color: #fff;
 `;
 
-export const NavMobile = styled.nav`
+export const NavMobile = styled.div`
   display: flex;
   position: absolute;
-  top: 100px;
+  top: 80px;
+  width: 100% !important;
+  div {
+    width: 100% !important;
+    nav {
+      width: 100% !important;
+      div {
+        div {
+          width: 100% !important;
+          padding: 0 6rem !important;
+          button {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            width: 100% !important;
+            font-size: 24px !important;
+            color: #fff !important;
+            background: none !important;
+          }
+          div {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            padding: 0 !important;
+            background: #000 !important;
+            a {
+              color: #fff !important;
+            }
+          }
+        }
+      }
+    }
+  }
 `;
 
 export const Container = styled.section`
@@ -58,7 +91,7 @@ export const Container = styled.section`
   ${({ isVisible }) =>
     isVisible &&
     css`
-      opacity: 1;
+      opacity: 0.9;
       pointer-events: auto;
       transform: translateY(0px);
 
