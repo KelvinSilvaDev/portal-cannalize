@@ -2,9 +2,22 @@ import styled from "styled-components";
 
 export const Cover = styled.div`
   display: block;
-  margin: 0 16rem;
+  margin: ${({ isDesktop }) => (isDesktop ? "0 16rem" : "0 1rem")};
+  div {
+    .postContent {
+      figure {
+        margin: 0;
+        width: 100% !important;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
   .wrapp {
     display: flex;
+    flex-direction: ${({ isDesktop }) => (isDesktop ? "row" : "column")};
     .postData {
       float: left;
     }
