@@ -17,7 +17,7 @@ export const Cover = styled.div`
         margin: 0;
         width: 100% !important;
         img {
-          width: 100%;
+          width: ${({ isDesktop }) => (isDesktop ? "" : "100%")} !important;
           height: auto;
         }
       }
