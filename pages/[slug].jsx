@@ -101,8 +101,8 @@ export default function Post(post) {
             <div className="postData">
               {/* <a href={ps.categories}>{ps._links["wp:term"][0].href}</a> */}
               <p>
-                {category.map(({ name }) => (
-                  <div>
+                {category.map(({ name, id }) => (
+                  <div key={id}>
                     <p>{name}</p>
                   </div>
                 ))}
