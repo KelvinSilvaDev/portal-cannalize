@@ -14,8 +14,20 @@ import { ptBR } from "date-fns/locale";
 import { MOBILE_WIDTH } from "../src/utils/constants";
 import useMediaQuery from "../src/hooks/useMediaQuery";
 import Colunists from "../components/Colunists";
+import RealStories from "../components/RealStories";
 export async function getServerSideProps() {
   //const [autor, setAutor] = useState([]);
+  const realStory = await api
+    .get("https://kellek.com.br/wp-json/wp/v2/posts?categories=52")
+    .then((res) => {
+      // api
+      //   .get(`https://kellek.com.br/wp-json/wp/v2/users/${res[0].author}`)
+      //   .then((response) => setAutor(response.data.name));
+      return res.data;
+    })
+    .then((response) => {
+      return response;
+    });
   const colunist = await api
     .get("https://kellek.com.br/wp-json/wp/v2/users?per_page=5&offset=1&_embed")
     .then((res) => {
@@ -48,6 +60,7 @@ export async function getServerSideProps() {
     });
   return {
     props: {
+      realStory,
       colunist,
       swiperPost,
       post,
@@ -85,7 +98,7 @@ export async function getServerSideProps() {
 //     });
 // };
 
-export default function Home({ colunist, post, swiperPost }) {
+export default function Home({ realStory, colunist, post, swiperPost }) {
   // console.log(authorName);
   // console.log(swiperPost);
   const isMobile = useMediaQuery(MOBILE_WIDTH);
@@ -224,9 +237,16 @@ export default function Home({ colunist, post, swiperPost }) {
                 <Colunists colunist={colunist} />
               </ul>
             </section>
-            <Link href="/">
-              <a>Leia mais</a>
-            </Link>
+          </div>
+          <div>
+            <header>
+              <h1>Histórias Reais</h1>
+            </header>
+            <section>
+              <ul>
+                <RealStories realStory={realStory} />
+              </ul>
+            </section>
           </div>
         </div>
       </Style.Aside>

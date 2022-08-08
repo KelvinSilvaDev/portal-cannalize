@@ -28,6 +28,16 @@ export const Cover = styled.div`
     flex-direction: ${({ isDesktop }) => (isDesktop ? "row" : "column")};
     .postData {
       float: left;
+      p {
+        display: flex;
+        gap: 5px;
+        div {
+          p {
+            color: #fb5f57;
+            font-weight: 500;
+          }
+        }
+      }
     }
     .fImage {
       width: 100%;
