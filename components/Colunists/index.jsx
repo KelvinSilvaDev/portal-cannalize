@@ -3,12 +3,30 @@ import Link from "next/link";
 import * as Style from "./styles";
 
 import api from "../../services/api";
+import { useEffect, useState } from "react";
 
-export default function Colunists(colunist) {
-  const colArr = colunist.colunist;
+export default function Colunists() {
+  const [colunist, setColunist] = useState([]);
+  useEffect(() => {
+    api
+      .get(
+        "https://kellek.com.br/wp-json/wp/v2/users?per_page=5&offset=1&_embed"
+      ) //roles=author&
+      .then((res) => {
+        // api
+        //   .get(`https://kellek.com.br/wp-json/wp/v2/users/${res[0].author}`)
+        //   .then((response) => setAutor(response.data.name));
+        return res.data;
+      })
+      .then((response) => {
+        setColunist(response);
+        return response;
+      });
+  }, []);
+  //const colArr = colunist.colunist;
   return (
     <>
-      {colArr.map((colunista) => (
+      {colunist.map((colunista) => (
         <div key={colunista.id}>
           <div>
             <section>

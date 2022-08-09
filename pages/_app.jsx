@@ -1,5 +1,5 @@
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+import Footer from "../components/Footer/";
+import Header from "../components/Header/";
 import { GlobalStyle } from "../styles/global";
 
 function MyApp({ Component, pageProps }) {

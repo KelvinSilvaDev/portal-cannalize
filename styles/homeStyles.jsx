@@ -98,13 +98,14 @@ export const Grid = styled.div`
   justify-content: center;
   align-content: center;
   width: 100%;
+  height: 50%;
   padding: 1rem;
   gap: 16px;
   flex-flow: ${({ isDesktop }) => (isDesktop ? "row wrap" : "column nowrap")};
 
   .card {
     cursor: pointer;
-    border: 0.05rem solid #e5e5e5;
+    border: none;
     border-radius: 8px;
     padding: 1rem;
     //min-height: 350px;
@@ -186,7 +187,14 @@ export const HeroImg = styled.div`
 
 export const Article = styled.article`
   width: ${({ isDesktop }) => (isDesktop ? "75%" : "100%")};
+  height: 100%;
   float: left;
+  .firstPosts {
+    ul {
+      width: 100%;
+      display: flex;
+    }
+  }
 `;
 
 export const Aside = styled.aside`
@@ -209,6 +217,18 @@ export const Aside = styled.aside`
 
     div {
       width: 100%;
+      header {
+        h1 {
+          font-family: "Oswald";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 20px;
+          line-height: 30px;
+          text-transform: uppercase;
+
+          color: #fb5f57;
+        }
+      }
       section {
         ul {
           overflow-y: auto;
@@ -243,4 +263,8 @@ export const Aside = styled.aside`
       }
     }
   }
+`;
+
+export const Newsletter = styled.article`
+  width: 100%;
 `;

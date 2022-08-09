@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useEffect } from "react";
-import NavMenu from "../NavMenu";
+import NavMenu from "../NavMenu/";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { Container, NavMobile, NavLink } from "./styles";

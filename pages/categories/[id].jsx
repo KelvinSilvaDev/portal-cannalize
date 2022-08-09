@@ -3,16 +3,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Head from "next/head";
 import Image from "next/image";
-import useMediaQuery from "../src/hooks/useMediaQuery";
-import { MOBILE_WIDTH } from "../src/utils/constants";
-import * as Style from "../styles/postTemplate";
-import api from "../services/api";
+import useMediaQuery from "../../src/hooks/useMediaQuery";
+import { MOBILE_WIDTH } from "../../src/utils/constants";
+import * as Style from "../../styles/postTemplate";
+import api from "../../services/api";
 
 export async function getServerSideProps(context) {
   const { params } = context;
-  const { slug } = params;
-  const post = await api
-    .get(`https://kellek.com.br/wp-json/wp/v2/posts?slug=${slug}`)
+  const { id } = params;
+  const category = await api
+    .get(`https://kellek.com.br/wp-json/wp/v2/categories/${id}`)
     .then((response) => {
       return response.data;
       // console.log(response);
@@ -23,7 +23,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      post,
+      category,
     },
   };
 }
@@ -38,18 +38,18 @@ export async function getServerSideProps(context) {
 //     // console.log(post[0].title.rendered);
 //   });
 
-export default function Post(post) {
+export default function Categories(category) {
   const router = useRouter();
   //const slug = router.query.slug;
   const isMobile = useMediaQuery(MOBILE_WIDTH);
   //const [post, setPost] = useState([]);
-  const [category, setCategory] = useState([]);
-  // const [id, setId] = useState([]);
+  const [categoryy, setCategory] = useState([]);
+  const [id, setId] = useState([]);
   // useEffect(() => {
   //   try {
   //     axios
   //       .get(
-  //         `https://kellek.com.br/wp-json/wp/v2/posts?slug=${router.query.slug}`
+  //         `https://kellek.com.br/wp-json/wp/v2/categories/${router.query.id}`
   //       )
   //       .then((response) => {
   //         setPost(response.data);
@@ -67,68 +67,43 @@ export default function Post(post) {
   //   } catch (error) {
   //     console.log(error);
   //   }
-  // }, [post]);
+  // }, []);
 
   useEffect(() => {
     try {
       api
-        .get(
-          `https://kellek.com.br/wp-json/wp/v2/categories?post=${id}&_embedded `
-        )
+        .get(`https://kellek.com.br/wp-json/wp/v2/categories/${thisCat.id}`)
         .then((resposta) => {
           console.log(resposta.data);
           return resposta.data;
         })
         .then((response) => {
           setCategory(response);
-          //   console.log(post);
+          console.log(categoryy);
         });
     } catch (error) {
       console.log(error);
     }
-  }, []);
-  console.log(post.post[0].id);
-  const id = post.post[0].id;
-  console.log(id);
+  });
+
+  //ACRESCENTAR PARA FILTRAR POSTS DESSA CATEGORIA ESPECIFICA --> posts?categories=${id}
+
+  //   console.log(post.post[0].id);
+  //   const id = post.post[0].id;
+
+  const thisCat = category.category;
   return (
     <Style.Cover isDesktop={!isMobile}>
-      <Head>
-        <title>{post.post[0]?.title.rendered}</title>
-      </Head>
-      {post.post?.map((ps) => (
-        <div key={ps.id}>
-          <div className="wrapp">
-            <div className="postData">
-              {/* <a href={ps.categories}>{ps._links["wp:term"][0].href}</a> */}
-              <p>
-                {category.map(({ name, id }) => (
-                  <div key={id}>
-
-                    <p>{name}</p>
-                  </div>
-                ))}
-              </p>
-              {console.log(category)}
-              <h1>{ps?.title?.rendered}</h1>
-              <div
-                dangerouslySetInnerHTML={{ __html: ps.excerpt.rendered }}
-              ></div>
-            </div>
-            <div className="fImage">
-              <Image
-                src={ps.yoast_head_json.og_image[0].url}
-                width={100}
-                layout="responsive"
-                height={75}
-              />
+      <div>
+        <h1>{thisCat.name}</h1>
+        {/* {categoryy.map((categ) => (
+          <div key={categ.id}>
+            <div>
+              <h2>{categ.title.rendered}</h2>
             </div>
           </div>
-          <div
-            className="postContent"
-            dangerouslySetInnerHTML={{ __html: ps.content.rendered }}
-          ></div>
-        </div>
-      ))}
+        ))} */}
+      </div>
     </Style.Cover>
   );
 }

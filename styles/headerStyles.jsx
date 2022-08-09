@@ -7,8 +7,8 @@ export const Header = styled.header`
   flex-direction: ${({ isDesktop }) => (isDesktop ? "row" : "column")};
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 32px;
+  padding: 74px 64px 28px;
   .logoWrapp {
     cursor: pointer;
   }
@@ -34,6 +34,7 @@ export const Menu = styled.div`
   align-content: center;
   gap: 5px 64px;
   input {
+    margin-left: 16px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -52,7 +53,7 @@ export const Menu = styled.div`
   nav {
     display: ${({ isDesktop }) => (isDesktop ? "flex" : "none")};
     flex-direction: ${({ isDesktop }) => (isDesktop ? "row" : "column")};
-    gap: 5px;
+    gap: 32px;
     align-items: center;
   }
 `;
