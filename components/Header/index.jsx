@@ -48,17 +48,14 @@ export default function Header() {
     <Style.Header isDesktop={!isMobile}>
       <div className="logoWrapp">
         <Link href="/">
-          <Image
-            src="/assets/img/cannalize_logo.png"
-            alt="Cannalize Logo"
-            width={164}
-            height={39}
-            sizes="
-                              (min-width: 75em) 33vw,
-                              (min-width: 48em) 50vw,
-                              100vw
-                              "
-          />
+          <div>
+            <Image
+              src="/assets/img/cannalize_logo.png"
+              alt="Cannalize Logo"
+              width={164}
+              height={39}
+            />
+          </div>
         </Link>
       </div>
       <Style.MenuWrapp isDesktop={!isMobile}>
