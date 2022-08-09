@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapp = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: ${({ isDesktop }) => (isDesktop ? "row" : "column")};
   align-items: center;
   justify-content: center;
   gap: 25px;

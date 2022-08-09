@@ -29,7 +29,7 @@ export const HeroWrapp = styled.div`
   object-fit: cover;
 
   .swiper-wrapper {
-    height: ${({ isDesktop }) => (isDesktop ? "535px" : "80vh")};
+    height: ${({ isDesktop }) => (isDesktop ? "535px" : "")};
   }
 
   .swiper {

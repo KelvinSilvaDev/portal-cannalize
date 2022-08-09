@@ -5,7 +5,6 @@ import Link from "../../Link";
 
 export default function HeroTags({ category }) {
   const isMobile = useMediaQuery(MOBILE_WIDTH);
-  console.log(category);
   return (
     <Style.TagsWrapp isDesktop={!isMobile}>
       <Style.Tags isDesktop={!isMobile}>

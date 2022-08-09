@@ -4,14 +4,21 @@ export const TagsWrapp = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  padding: 0px;
+  padding: 0;
+  margin: ${({ isDesktop }) => (isDesktop ? "0px" : "0 1rem")};
   gap: 16px;
+  overflow-x: ${({ isDesktop }) => (isDesktop ? "none" : "auto")};
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  margin-bottom: 1rem;
 `;
 
 export const Tags = styled.div`
   display: flex;
   gap: 18px;
-  justify-content: ${({ isDesktop }) => (isDesktop ? "flex-start" : "center")};
+  justify-content: ${({ isDesktop }) =>
+    isDesktop ? "flex-start" : "flex-start"};
   display: flex;
   flex-direction: row;
   align-items: flex-start;

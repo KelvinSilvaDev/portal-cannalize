@@ -1,7 +1,10 @@
+import { MOBILE_WIDTH } from "../../../src/utils/constants";
+import useMediaQuery from "../../../src/hooks/useMediaQuery";
 import * as Style from "./styles";
 export default function Newsletter() {
+  const isMobile = useMediaQuery(MOBILE_WIDTH);
   return (
-    <Style.Wrapp>
+    <Style.Wrapp isDesktop={!isMobile}>
       <div className="title">
         <h1>ASSINE NOSSA NEWSLETTER!</h1>
         <p>Fique por dentro de tudo que acontece</p>

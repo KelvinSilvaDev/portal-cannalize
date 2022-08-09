@@ -51,8 +51,8 @@ export default function NavMenu() {
             <a>Olá</a>
           </Link>
         </Dropbtn>
+        <InputSearch placeholder={"Pesquisar"} />
       </nav>
-      <InputSearch placeholder={"Pesquisar"} />
     </Style.Menu>
   );
 }
