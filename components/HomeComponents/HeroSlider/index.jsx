@@ -60,6 +60,7 @@ export default function HeroSlider(swiperPost) {
                               (min-width: 48em) 50vw,
                               100vw
                               "
+                    priority
                   />
                 </Style.HeroImg>
               </SwiperSlide>
