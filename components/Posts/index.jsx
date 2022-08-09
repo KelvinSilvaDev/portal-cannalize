@@ -27,6 +27,11 @@ const Posts = ({ posts, loading, firstPosts }) => {
                               layout="responsive"
                               width={700}
                               height={475}
+                              sizes="
+                              (min-width: 75em) 33vw,
+                              (min-width: 48em) 50vw,
+                              100vw
+                              "
                             />
                           </div>
                           <h1>{post.title.rendered}</h1>
@@ -54,6 +59,12 @@ const Posts = ({ posts, loading, firstPosts }) => {
                               layout="responsive"
                               width={700}
                               height={475}
+                              sizes="
+                              (min-width: 75em) 33vw,
+                              (min-width: 48em) 50vw,
+                              100vw
+                              "
+                              priority
                             />
                           </div>
                           <h1>{post.title.rendered}</h1>

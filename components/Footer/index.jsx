@@ -22,6 +22,11 @@ export default function Footer() {
               alt="Cannalize Logo"
               width={164}
               height={39}
+              sizes="
+                              (min-width: 75em) 33vw,
+                              (min-width: 48em) 50vw,
+                              100vw
+                              "
             />
           </Link>
           <div>

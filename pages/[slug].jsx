@@ -103,7 +103,6 @@ export default function Post(post) {
               <p>
                 {category.map(({ name, id }) => (
                   <div key={id}>
-
                     <p>{name}</p>
                   </div>
                 ))}
@@ -120,6 +119,11 @@ export default function Post(post) {
                 width={100}
                 layout="responsive"
                 height={75}
+                sizes="
+                              (min-width: 75em) 33vw,
+                              (min-width: 48em) 50vw,
+                              100vw
+                              "
               />
             </div>
           </div>

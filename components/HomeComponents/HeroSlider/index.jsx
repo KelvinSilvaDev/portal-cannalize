@@ -55,6 +55,11 @@ export default function HeroSlider(swiperPost) {
                     width={100}
                     height={75}
                     alt="teste"
+                    sizes="
+                              (min-width: 75em) 33vw,
+                              (min-width: 48em) 50vw,
+                              100vw
+                              "
                   />
                 </Style.HeroImg>
               </SwiperSlide>
