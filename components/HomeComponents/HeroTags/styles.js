@@ -7,7 +7,7 @@ export const TagsWrapp = styled.div`
   padding: 0;
   margin: ${({ isDesktop }) => (isDesktop ? "0px" : "0 1rem")};
   gap: 16px;
-  overflow-x: ${({ isDesktop }) => (isDesktop ? "none" : "auto")};
+  overflow-x: ${({ isDesktop }) => (isDesktop ? "scroll" : "auto")};
   ::-webkit-scrollbar {
     display: none;
   }
@@ -19,6 +19,7 @@ export const Tags = styled.div`
   gap: 18px;
   justify-content: ${({ isDesktop }) =>
     isDesktop ? "flex-start" : "flex-start"};
+  flex-wrap: ${({ isDesktop }) => (isDesktop ? "wrap" : "nowrap")};
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -41,7 +42,6 @@ export const Tags = styled.div`
     padding: 11px 18px;
     gap: 10px;
 
-    width: 86px;
     height: 38px;
 
     background: #f2f0ec;

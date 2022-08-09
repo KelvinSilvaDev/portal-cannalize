@@ -18,9 +18,9 @@ export const HeroImg = styled.div`
 `;
 
 export const HeroWrapp = styled.div`
-  margin: 0rem 0 4rem 0;
+  margin: ${({ isDesktop }) => (isDesktop ? "0rem 0 4rem 0" : "0rem")};
   display: flex;
-  width: 95%;
+  width: ${({ isDesktop }) => (isDesktop ? "95%" : "100%")};
   flex-direction: column;
   align-items: center;
   justify-content: space-between;

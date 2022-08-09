@@ -8,7 +8,9 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   gap: 32px;
-  padding: 74px 64px 28px;
+  padding: ${({ isDesktop }) =>
+    isDesktop ? "74px 64px 28px" : "20px 15px 30px"};
+  //padding: 74px 64px 28px;
   .logoWrapp {
     cursor: pointer;
   }
