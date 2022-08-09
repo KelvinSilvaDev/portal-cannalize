@@ -1,5 +1,5 @@
 import * as Style from "./styles";
-export default function () {
+export default function Newsletter() {
   return (
     <Style.Wrapp>
       <div className="title">
