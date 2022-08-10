@@ -25,7 +25,9 @@ export async function getServerSideProps() {
   //const [autor, setAutor] = useState([]);
 
   const swiperPost = await api
-    .get("https://kellek.com.br/wp-json/wp/v2/posts?per_page=5&offset=1&_embed")
+    .get(
+      "https://cannalize.com.br/wp-json/wp/v2/posts?per_page=5&offset=1&_embed"
+    )
     .then((res) => {
       // api
       //   .get(`https://kellek.com.br/wp-json/wp/v2/users/${res[0].author}`)
@@ -53,7 +55,7 @@ export default function Home({ swiperPost }) {
     const fetchPosts = async () => {
       setLoading(true);
       const res =
-        await api.get(`https://kellek.com.br/wp-json/wp/v2/posts?per_page=39
+        await api.get(`https://cannalize.com.br/wp-json/wp/v2/posts?per_page=39&_embedded
       `);
       setPosts(res.data);
       setLoading(false);

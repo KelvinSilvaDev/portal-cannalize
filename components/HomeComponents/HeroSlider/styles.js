@@ -11,6 +11,38 @@ export const HeroText = styled.div`
   float: left;
   width: ${({ isDesktop }) => (isDesktop ? "50%" : "100%")};
   padding: 1rem;
+  text-align: left;
+  h1 {
+    font-family: "Oswald";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+  }
+  div {
+    p {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+    }
+  }
+  div {
+    span {
+      p {
+        strong {
+          font-family: "Oswald";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 18px;
+
+          a {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
 `;
 export const HeroImg = styled.div`
   float: right;

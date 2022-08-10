@@ -12,7 +12,10 @@ export async function getServerSideProps(context) {
   const { params } = context;
   const { slug } = params;
   const post = await api
-    .get(`https://kellek.com.br/wp-json/wp/v2/posts?slug=${slug}`)
+    .get(
+      `https://cannalize.com.br/wp-json/wp/v2/posts?slug=${slug}`
+      //`https://kellek.com.br/wp-json/wp/v2/posts?slug=${slug}`
+    )
     .then((response) => {
       return response.data;
       // console.log(response);
@@ -73,7 +76,8 @@ export default function Post(post) {
     try {
       api
         .get(
-          `https://kellek.com.br/wp-json/wp/v2/categories?post=${id}&_embedded `
+          `https://cannalize.com.br/wp-json/wp/v2/categories?post=${id}&_embedded `
+          //`https://kellek.com.br/wp-json/wp/v2/categories?post=${id}&_embedded `
         )
         .then((resposta) => {
           console.log(resposta.data);

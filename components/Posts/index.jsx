@@ -1,4 +1,6 @@
 import React from "react";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 import Link from "next/link";
 import Image from "next/image";
 import { MOBILE_WIDTH } from "../../src/utils/constants";
@@ -6,6 +8,7 @@ import useMediaQuery from "../../src/hooks/useMediaQuery";
 import * as Style from "./styles";
 
 const Posts = ({ posts, loading, firstPosts }) => {
+  console.log(firstPosts);
   const isMobile = useMediaQuery(MOBILE_WIDTH);
   if (loading) {
     return <h2>Loading...</h2>;
@@ -16,7 +19,7 @@ const Posts = ({ posts, loading, firstPosts }) => {
           <Style.Grid isDesktop={!isMobile}>
             {posts.map((post) => {
               return (
-                <div key={post.slug}>
+                <div key={post.id}>
                   <Link href={post.slug} slug={post.slug} id={post.guid}>
                     <a>
                       <div className="card">
@@ -33,8 +36,29 @@ const Posts = ({ posts, loading, firstPosts }) => {
                               100vw
                               "
                             />
+                            <p>{post.x_categories}</p>
                           </div>
                           <h1>{post.title.rendered}</h1>
+                          <div
+                            id="postExcerpt"
+                            dangerouslySetInnerHTML={{
+                              __html: post.excerpt.rendered,
+                            }}
+                          />
+                          <span>
+                            <p>
+                              <strong id="CardPostAuthor">
+                                {format(
+                                  new Date(post.date_gmt),
+                                  `dd 'de' MMMM 'de' yyyy`,
+                                  {
+                                    locale: ptBR,
+                                  }
+                                )}
+                                , por {post.x_author}
+                              </strong>
+                            </p>
+                          </span>
                         </div>
                       </div>
                     </a>
@@ -48,7 +72,7 @@ const Posts = ({ posts, loading, firstPosts }) => {
           <Style.FirstGrid isDesktop={!isMobile}>
             {firstPosts.map((post) => {
               return (
-                <div key={post.slug}>
+                <div key={post.id}>
                   <Link href={post.slug} slug={post.slug} id={post.guid}>
                     <a>
                       <div className="card">
@@ -66,8 +90,24 @@ const Posts = ({ posts, loading, firstPosts }) => {
                               "
                               priority
                             />
+                            <p>{post.x_categories}</p>
                           </div>
                           <h1>{post.title.rendered}</h1>
+
+                          <span>
+                            <p>
+                              <strong id="CardPostAuthor">
+                                {format(
+                                  new Date(post.date_gmt),
+                                  `dd 'de' MMMM 'de' yyyy`,
+                                  {
+                                    locale: ptBR,
+                                  }
+                                )}
+                                , por {post.x_author}
+                              </strong>
+                            </p>
+                          </span>
                         </div>
                       </div>
                     </a>

@@ -92,38 +92,7 @@ export const Menu = styled.div`
 `;
 export const ButtonTop = styled.div``;
 
-export const Grid = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  align-content: center;
-  width: 100%;
-  height: 50%;
-  padding: 1rem;
-  gap: 16px;
-  flex-flow: ${({ isDesktop }) => (isDesktop ? "row wrap" : "column nowrap")};
-
-  .card {
-    cursor: pointer;
-    border: none;
-    border-radius: 8px;
-    padding: 1rem;
-    //min-height: 350px;
-    :hover {
-      transform: scale(1.05);
-      transition: 0.5s;
-    }
-    h1 {
-      font-size: 20px;
-    }
-  }
-  div {
-    flex-basis: ${({ isDesktop }) => (isDesktop ? "25%" : "100%")};
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-`;
+export const Grid = styled.div``;
 
 export const TagsWrapp = styled.div`
   display: flex;

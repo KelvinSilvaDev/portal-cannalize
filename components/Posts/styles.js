@@ -20,7 +20,27 @@ export const FirstGrid = styled.div`
       transition: 0.5s;
     }
     h1 {
-      font-size: 20px;
+      font-family: "Oswald";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 120%;
+      /* or 43px */
+
+      color: #2c2a32;
+    }
+    div {
+      div {
+        p {
+          font-family: "Open Sans";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 12px;
+          line-height: 16px;
+
+          color: #fb5f57;
+        }
+      }
     }
   }
   div {
@@ -29,7 +49,17 @@ export const FirstGrid = styled.div`
     display: flex;
     flex-direction: column;
   }
+  #CardPostAuthor {
+    font-family: "Oswald";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+
+    color: #2c2a32;
+  }
 `;
+
 export const Grid = styled.ul`
   display: flex;
   align-items: flex-start;
@@ -44,19 +74,56 @@ export const Grid = styled.ul`
     cursor: pointer;
 
     padding: 1rem;
+    display: flex;
+    align-items: flex-start;
+
     //min-height: 350px;
     :hover {
       transform: scale(1.05);
       transition: 0.5s;
     }
     h1 {
+      font-family: "Oswald";
+      font-style: normal;
+      font-weight: 700;
       font-size: 20px;
+    }
+    div {
+      #postExcerpt {
+        p {
+          font-family: "Open Sans";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12px;
+          color: #000;
+        }
+      }
+      div {
+        p {
+          font-family: "Open Sans";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 12px;
+          line-height: 16px;
+
+          color: #fb5f57;
+        }
+      }
     }
   }
   div {
-    flex-basis: ${({ isDesktop }) => (isDesktop ? "25%" : "100%")};
+    flex-basis: ${({ isDesktop }) => (isDesktop ? "30%" : "100%")};
     width: 100%;
     display: flex;
     flex-direction: column;
+  }
+  #CardPostAuthor {
+    font-family: "Oswald";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #2c2a32;
   }
 `;
