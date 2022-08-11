@@ -81,7 +81,7 @@ export async function getStaticProps(context) {
 //     // console.log(post[0].title.rendered);
 //   });
 
-export default function Post(post) {
+export default function Post({ post }) {
   const router = useRouter();
   //const slug = router.query.slug;
   const isMobile = useMediaQuery(MOBILE_WIDTH);
@@ -111,7 +111,8 @@ export default function Post(post) {
   //     console.log(error);
   //   }
   // }, [post]);
-
+  //const id = post[0].id;
+  console.log(post);
   useEffect(() => {
     try {
       api
@@ -132,14 +133,12 @@ export default function Post(post) {
     }
   }, []);
   //console.log(post.post[0].id);
-  const id = post.post[0].id;
+
   //console.log(id);
   return (
     <Style.Cover isDesktop={!isMobile}>
-      <Head>
-        <title>{post.post[0]?.title.rendered}</title>
-      </Head>
-      {post.post?.map((ps) => (
+      <Head>{/* <title>{post.post[0]?.title.rendered}</title> */}</Head>
+      {post?.map((ps) => (
         <div key={ps.id}>
           <div className="wrapp">
             <div className="postData">
