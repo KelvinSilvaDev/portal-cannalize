@@ -27,7 +27,7 @@ export function getStaticProps(context) {
   const { slug } = params;
   let post = null;
   try {
-    data = api
+    post = api
       .get(
         `https://cannalize.com.br/wp-json/wp/v2/posts?slug=${slug}`
         //`https://kellek.com.br/wp-json/wp/v2/posts?slug=${slug}`
