@@ -25,19 +25,23 @@ export async function getStaticPaths() {
 export function getStaticProps(context) {
   const { params } = context;
   const { slug } = params;
-  const post = api
-    .get(
-      `https://cannalize.com.br/wp-json/wp/v2/posts?slug=${slug}`
-      //`https://kellek.com.br/wp-json/wp/v2/posts?slug=${slug}`
-    )
-    .then((response) => {
-      return response.data;
-      // console.log(response);
-    })
-    .then((res) => {
-      return res;
-    });
-
+  let post = null;
+  try {
+    data = api
+      .get(
+        `https://cannalize.com.br/wp-json/wp/v2/posts?slug=${slug}`
+        //`https://kellek.com.br/wp-json/wp/v2/posts?slug=${slug}`
+      )
+      .then((response) => {
+        return response.data;
+        // console.log(response);
+      })
+      .then((res) => {
+        return res;
+      });
+  } catch (error) {
+    console.log(error);
+  }
   return {
     props: {
       post,
