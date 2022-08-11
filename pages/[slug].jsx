@@ -10,7 +10,14 @@ import api from "../services/api";
 
 export async function getStaticPaths() {
   return {
-    paths: [{ params: { slug: "lorem-ipsum" } }],
+    paths: [
+      "/iman-shumpert-ex-jogador-da-nba-e-preso-por-posse-de-maconha-no-texas",
+      {
+        params: {
+          slug: "iman-shumpert-ex-jogador-da-nba-e-preso-por-posse-de-maconha-no-texas",
+        },
+      },
+    ],
     fallback: true,
   };
 }
