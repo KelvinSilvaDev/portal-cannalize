@@ -22,12 +22,12 @@ export async function getStaticPaths() {
   };
 }
 
-export function getStaticProps(context) {
+export async function getStaticProps(context) {
   const { params } = context;
   const { slug } = params;
   let post = null;
   try {
-    post = api
+    post = await api
       .get(
         `https://cannalize.com.br/wp-json/wp/v2/posts?slug=${slug}`
         //`https://kellek.com.br/wp-json/wp/v2/posts?slug=${slug}`
