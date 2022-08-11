@@ -29,6 +29,17 @@ export const Aside = styled.aside`
           text-transform: uppercase;
 
           color: #fb5f57;
+          a {
+            font-family: "Open Sans";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 19px;
+            /* identical to box height */
+
+            text-align: right;
+            text-transform: uppercase;
+          }
         }
       }
       section {

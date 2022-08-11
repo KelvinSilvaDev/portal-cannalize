@@ -2,6 +2,7 @@ import { MOBILE_WIDTH } from "../../../src/utils/constants";
 import useMediaQuery from "../../../src/hooks/useMediaQuery";
 import Colunists from "../../Colunists";
 import RealStories from "../../RealStories";
+import Link from "../../Link/";
 import * as Style from "./styles";
 
 export default function Aside() {
@@ -24,12 +25,17 @@ export default function Aside() {
         </div>
         <div>
           <header>
-            <h1>Histórias Reais</h1>
+            <h1>
+              Histórias Reais<Link href="/">Envie a sua &rarr;</Link>
+            </h1>
           </header>
           <section>
             <ul>
               <RealStories />
             </ul>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <h3>AQUI VAI MAIS UMA PUBLICIDADE</h3>
+            </div>
           </section>
         </div>
       </div>

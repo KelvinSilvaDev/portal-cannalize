@@ -8,10 +8,17 @@ import { MOBILE_WIDTH } from "../src/utils/constants";
 import * as Style from "../styles/postTemplate";
 import api from "../services/api";
 
-export async function getServerSideProps(context) {
+export async function getStaticPaths() {
+  return {
+    paths: [{ params: { slug: "lorem-ipsum" } }],
+    fallback: true,
+  };
+}
+
+export function getStaticProps(context) {
   const { params } = context;
   const { slug } = params;
-  const post = await api
+  const post = api
     .get(
       `https://cannalize.com.br/wp-json/wp/v2/posts?slug=${slug}`
       //`https://kellek.com.br/wp-json/wp/v2/posts?slug=${slug}`
@@ -30,6 +37,28 @@ export async function getServerSideProps(context) {
     },
   };
 }
+// export async function getServerSideProps(context) {
+//   const { params } = context;
+//   const { slug } = params;
+//   const post = await api
+//     .get(
+//       `https://cannalize.com.br/wp-json/wp/v2/posts?slug=${slug}`
+//       //`https://kellek.com.br/wp-json/wp/v2/posts?slug=${slug}`
+//     )
+//     .then((response) => {
+//       return response.data;
+//       // console.log(response);
+//     })
+//     .then((res) => {
+//       return res;
+//     });
+
+//   return {
+//     props: {
+//       post,
+//     },
+//   };
+// }
 
 // api
 //   .get(
@@ -91,9 +120,9 @@ export default function Post(post) {
       console.log(error);
     }
   }, []);
-  console.log(post.post[0].id);
+  //console.log(post.post[0].id);
   const id = post.post[0].id;
-  console.log(id);
+  //console.log(id);
   return (
     <Style.Cover isDesktop={!isMobile}>
       <Head>

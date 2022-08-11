@@ -11,10 +11,7 @@ export default function NavMenu() {
   const [categoria, setCategoria] = useState([]);
   const cats = categoria.map(({ name, _links, id }) => {
     return (
-      <Link
-        href={history == "/categories" ? { id } : `categories/${id}`}
-        key={name}
-      >
+      <Link href={`/categories/${id}`} key={name}>
         <a>{name}</a>
         {/* _links["wp:post_type"][0].href */}
       </Link>
