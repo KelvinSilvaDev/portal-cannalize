@@ -13,7 +13,7 @@ export async function getStaticPaths() {
     paths: [
       {
         params: {
-          slug: "/iman-shumpert-ex-jogador-da-nba-e-preso-por-posse-de-maconha-no-texas",
+          slug: "blog/iman-shumpert-ex-jogador-da-nba-e-preso-por-posse-de-maconha-no-texas",
         },
       },
     ],
