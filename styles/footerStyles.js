@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Header = styled.header`
   width: 100%;
   padding: 1rem 64px;
+  background: #fff;
   div {
     display: flex;
     flex-direction: row;
@@ -22,6 +23,8 @@ export const Header = styled.header`
           justify-content: center;
           svg {
             font-size: 20px;
+            filter: invert(88%) sepia(0%) saturate(0%) hue-rotate(86deg)
+              brightness(100%) contrast(219%);
           }
         }
       }
@@ -30,13 +33,15 @@ export const Header = styled.header`
 `;
 
 export const Section = styled.section`
-  width: ${({ isDesktop }) => (isDesktop ? "50%" : "100%")};
+  width: 100%;
   float: right;
   display: flex;
   flex-direction: ${({ isDesktop }) => (isDesktop ? "row" : "column")};
-  justify-content: stretch;
+  justify-content: flex-end;
   align-items: center;
   gap: 16px;
+  background: #fff;
+  padding-right: ${({ isDesktop }) => (isDesktop ? "2rem" : "")};
   div {
     display: flex;
     flex-direction: ${({ isDesktop }) => (isDesktop ? "row" : "column")};

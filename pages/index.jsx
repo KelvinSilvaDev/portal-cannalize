@@ -122,7 +122,7 @@ export default function Home({ swiperPost }) {
             paginate={paginate}
           /> */}
         </Style.Article>
-        <Aside />
+        <Aside isDesktop={!isMobile} />
       </Style.AllWrapp>
       <Style.Newsletter>
         <Newsletter />

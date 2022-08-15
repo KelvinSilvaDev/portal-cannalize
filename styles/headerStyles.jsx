@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Header = styled.header`
+  background: linear-gradient(254.18deg, #f84270 22.88%, #fe803b 61.04%);
   width: 100%;
   //display: ${({ isDesktop }) => (isDesktop ? "flex" : "block")};
   display: flex;
@@ -9,7 +10,7 @@ export const Header = styled.header`
   align-items: center;
   gap: 32px;
   padding: ${({ isDesktop }) =>
-    isDesktop ? "74px 64px 28px" : "20px 15px 30px"};
+    isDesktop ? "30px 64px 30px" : "20px 15px 30px"};
   //padding: 74px 64px 28px;
   .logoWrapp {
     cursor: pointer;
@@ -82,7 +83,7 @@ export const MenuMobileTogler = styled.div`
 export const ButtonTop = styled.div`
   button {
     float: ${({ isDesktop }) => (isDesktop ? "none" : "left")};
-    background: #fe7a41;
+    background: #000;
     border: none;
     padding: 16px;
     color: #fff;

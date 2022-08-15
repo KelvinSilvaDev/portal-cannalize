@@ -8,7 +8,7 @@ export const All = styled.div`
     align-items: center;
     justify-content: center;
     border: none;
-    background: #fff;
+    background: none;
     font-family: "Open Sans", sans-serif;
     font-weight: 700;
     /* Inside auto layout */
@@ -41,7 +41,13 @@ export const All = styled.div`
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    //background-color: #f1f1f1;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(6.5px);
+    -webkit-backdrop-filter: blur(6.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 9999;
@@ -49,13 +55,14 @@ export const All = styled.div`
 
   .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 10px 16px;
     text-decoration: none;
     display: block;
   }
 
   .dropdown-content a:hover {
     background-color: #ddd;
+    border-radius: 10px;
   }
 
   .dropdown:hover .dropdown-content {

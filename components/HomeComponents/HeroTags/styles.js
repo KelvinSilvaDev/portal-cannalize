@@ -43,8 +43,9 @@ export const Tags = styled.div`
     gap: 10px;
 
     height: 38px;
-
-    background: #f2f0ec;
+    background: ${({ isActive }) => (isActive ? "#f2f0ec" : "")};
+    border: ${({ isActive }) =>
+      isActive ? "1px solid #f2f0ec" : "1px solid #f2f0ec"};
     border-radius: 48px;
   }
   border-radius: 48px;

@@ -20,7 +20,11 @@ const Posts = ({ posts, loading, firstPosts }) => {
             {posts.map((post) => {
               return (
                 <div key={post.id}>
-                  <Link href={post.slug} slug={post.slug} id={post.guid}>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    slug={post.slug}
+                    id={post.guid}
+                  >
                     <a>
                       <div className="card">
                         <div>
@@ -77,7 +81,11 @@ const Posts = ({ posts, loading, firstPosts }) => {
             {firstPosts.map((post) => {
               return (
                 <div key={post.id}>
-                  <Link href={post.slug} slug={post.slug} id={post.guid}>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    slug={post.slug}
+                    id={post.guid}
+                  >
                     <a>
                       <div className="card">
                         <div>

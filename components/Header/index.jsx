@@ -50,10 +50,10 @@ export default function Header() {
         <Link href="/">
           <div>
             <Image
-              src="/assets/img/cannalize_logo.png"
+              src="/assets/img/cannalize_logo_branco.png"
               alt="Cannalize Logo"
-              width={164}
-              height={39}
+              width={277}
+              height={65}
             />
           </div>
         </Link>

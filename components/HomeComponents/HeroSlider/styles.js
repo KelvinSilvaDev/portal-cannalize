@@ -72,7 +72,7 @@ export const HeroWrapp = styled.div`
   .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
+    background: #2c2a32;
 
     /* Center slide text vertically */
     display: -webkit-box;

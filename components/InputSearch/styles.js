@@ -10,7 +10,10 @@ export const ContainerInput = styled.div`
     right: 16px;
     top: 16px;
     padding-left: 3rem;
-    color: #000;
+    svg {
+      filter: invert(88%) sepia(09%) saturate(0%) hue-rotate(86deg)
+        brightness(118%) contrast(119%);
+    }
   }
 `;
 

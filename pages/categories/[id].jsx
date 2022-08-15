@@ -5,7 +5,7 @@ import Head from "next/head";
 import Image from "next/image";
 import useMediaQuery from "../../src/hooks/useMediaQuery";
 import { MOBILE_WIDTH } from "../../src/utils/constants";
-import * as Style from "../../styles/postTemplate";
+import * as Style from "../../styles/catsTemplate";
 import api from "../../services/api";
 
 export async function getServerSideProps(context) {

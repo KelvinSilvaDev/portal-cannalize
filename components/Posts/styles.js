@@ -27,7 +27,7 @@ export const FirstGrid = styled.div`
       line-height: 120%;
       /* or 43px */
 
-      color: #2c2a32;
+      color: #fff;
     }
     div {
       div {
@@ -38,7 +38,7 @@ export const FirstGrid = styled.div`
           font-size: 12px;
           line-height: 16px;
 
-          color: #fb5f57;
+          color: #3d3d3d;
         }
       }
     }
@@ -56,7 +56,7 @@ export const FirstGrid = styled.div`
     font-size: 16px;
     line-height: 18px;
 
-    color: #2c2a32;
+    color: #fff;
   }
 `;
 
@@ -95,7 +95,7 @@ export const Grid = styled.ul`
           font-style: normal;
           font-weight: 400;
           font-size: 12px;
-          color: #000;
+          color: #fff;
         }
       }
       div {
@@ -124,6 +124,6 @@ export const Grid = styled.ul`
     font-size: 14px;
     line-height: 18px;
 
-    color: #2c2a32;
+    color: #d9d9d9;
   }
 `;

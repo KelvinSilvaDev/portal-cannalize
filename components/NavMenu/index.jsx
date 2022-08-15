@@ -1,4 +1,3 @@
-import * as Style from "../../styles/headerStyles";
 import Dropbtn from "../Dropbtn/";
 import Link from "next/link";
 import api from "../../services/api";
@@ -6,6 +5,7 @@ import { useState, useEffect } from "react";
 import { MOBILE_WIDTH } from "../../src/utils/constants";
 import useMediaQuery from "../../src/hooks/useMediaQuery";
 import { InputSearch } from "../InputSearch";
+import * as Style from "../../styles/headerStyles";
 export default function NavMenu() {
   const isMobile = useMediaQuery(MOBILE_WIDTH);
   const [categoria, setCategoria] = useState([]);

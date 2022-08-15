@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import { MAX_PAGE_WIDTH } from "../src/utils/constants";
 
 export const Cover = styled.div`
   display: block;
-  max-width: ${MAX_PAGE_WIDTH};
-  margin: ${({ isDesktop }) => (isDesktop ? "50px auto" : "0 1rem")};
+  margin: ${({ isDesktop }) => (isDesktop ? "0 16rem" : "0 1rem")};
+  height: 100vh;
   div {
     margin: 1rem 0;
     .postContent {

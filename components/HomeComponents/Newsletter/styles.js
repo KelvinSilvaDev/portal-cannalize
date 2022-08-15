@@ -5,8 +5,11 @@ export const Wrapp = styled.div`
   flex-direction: ${({ isDesktop }) => (isDesktop ? "row" : "column")};
   align-items: center;
   justify-content: center;
+  padding: 5.7rem 0;
   gap: 25px;
   width: 100%;
+  height: 232px;
+  background: linear-gradient(180deg, #2c2a32 0%, #000000 100%);
   .title {
     display: flex;
     flex-direction: column;
@@ -33,6 +36,7 @@ export const Wrapp = styled.div`
       padding-left: 1rem;
       border: none;
       height: 100%;
+      border-radius: 8px;
     }
     button {
       margin-left: 16px;

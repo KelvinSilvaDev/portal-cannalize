@@ -1,6 +1,6 @@
-import * as Style from "../../styles/DropbtnStyles";
 import { MOBILE_WIDTH } from "../../src/utils/constants";
 import useMediaQuery from "../../src/hooks/useMediaQuery";
+import * as Style from "../../styles/DropbtnStyles";
 
 export default function Dropbtn({ title, children }) {
   const isMobile = useMediaQuery(MOBILE_WIDTH);

@@ -1,9 +1,13 @@
 import styled from "styled-components";
+import { MAX_PAGE_WIDTH } from "../src/utils/constants";
 
 export const AllWrapp = styled.div`
   width: 100%;
   display: flex;
   flex-direction: ${({ isDesktop }) => (isDesktop ? "row" : "column")};
+  max-width: ${MAX_PAGE_WIDTH};
+  display: block;
+  margin: 0 auto;
 `;
 
 export const Header = styled.header`
@@ -155,6 +159,7 @@ export const HeroImg = styled.div`
 `;
 
 export const Article = styled.article`
+  padding-top: 1.2rem;
   width: ${({ isDesktop }) => (isDesktop ? "75%" : "100%")};
   height: 100%;
   float: left;
@@ -167,6 +172,7 @@ export const Article = styled.article`
 `;
 
 export const Aside = styled.aside`
+  padding-top: 1.2rem;
   width: ${({ isDesktop }) => (isDesktop ? "25%" : "100%")};
   float: ${({ isDesktop }) => (isDesktop ? "right" : "none")};
   display: flex;
