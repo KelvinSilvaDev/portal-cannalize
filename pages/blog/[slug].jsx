@@ -13,7 +13,7 @@ export async function getStaticPaths() {
     paths: [
       {
         params: {
-          slug: "blog/iman-shumpert-ex-jogador-da-nba-e-preso-por-posse-de-maconha-no-texas",
+          slug: "/iman-shumpert-ex-jogador-da-nba-e-preso-por-posse-de-maconha-no-texas",
         },
       },
     ],
@@ -21,7 +21,8 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(params) {
+export async function getStaticProps(context) {
+  const { params } = context;
   let post = null;
   try {
     post = await api
@@ -129,7 +130,7 @@ export default function Post({ post }) {
       console.log(error);
     }
   }, []);
-  //console.log(post.post[0].id);
+  console.log(post?.id);
 
   //console.log(id);
   return (
