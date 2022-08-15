@@ -11,10 +11,10 @@ import api from "../services/api";
 export async function getStaticPaths() {
   return {
     paths: [
-      "/iman-shumpert-ex-jogador-da-nba-e-preso-por-posse-de-maconha-no-texas",
+      "blog/iman-shumpert-ex-jogador-da-nba-e-preso-por-posse-de-maconha-no-texas",
       {
         params: {
-          slug: "iman-shumpert-ex-jogador-da-nba-e-preso-por-posse-de-maconha-no-texas",
+          slug: "blog/iman-shumpert-ex-jogador-da-nba-e-preso-por-posse-de-maconha-no-texas",
         },
       },
     ],
