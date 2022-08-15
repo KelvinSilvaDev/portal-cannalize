@@ -5,16 +5,15 @@ import Head from "next/head";
 import Image from "next/image";
 import useMediaQuery from "../../src/hooks/useMediaQuery";
 import { MOBILE_WIDTH } from "../../src/utils/constants";
-import api from "../../services/api";
 import * as Style from "../../styles/postTemplate";
+import api from "../../services/api";
 
 export async function getStaticPaths() {
   return {
     paths: [
-      "/blog/iman-shumpert-ex-jogador-da-nba-e-preso-por-posse-de-maconha-no-texas",
       {
         params: {
-          slug: "/blog/iman-shumpert-ex-jogador-da-nba-e-preso-por-posse-de-maconha-no-texas",
+          slug: "/iman-shumpert-ex-jogador-da-nba-e-preso-por-posse-de-maconha-no-texas",
         },
       },
     ],
@@ -22,14 +21,12 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(context) {
-  const { params } = context;
-  const { slug } = params;
+export async function getStaticProps(params) {
   let post = null;
   try {
     post = await api
       .get(
-        `https://cannalize.com.br/wp-json/wp/v2/posts?slug=${slug}`
+        `https://cannalize.com.br/wp-json/wp/v2/posts?slug=${params.slug}`
         //`https://kellek.com.br/wp-json/wp/v2/posts?slug=${slug}`
       )
       .then((response) => {
@@ -137,9 +134,7 @@ export default function Post({ post }) {
   //console.log(id);
   return (
     <Style.Cover isDesktop={!isMobile}>
-      <Head>
-        <title>{post[0]?.title.rendered}</title>
-      </Head>
+      <Head>{/* <title>{post.post[0]?.title.rendered}</title> */}</Head>
       {post?.map((ps) => (
         <div key={ps.id}>
           <div className="wrapp">
